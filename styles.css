@@ -167,6 +167,13 @@ img {
   padding: 152px 0 116px;
 }
 
+.investor-hero-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 42px;
+  align-items: end;
+}
+
 .hero-logo {
   width: clamp(132px, 16vw, 220px);
   height: clamp(132px, 16vw, 220px);
@@ -202,6 +209,11 @@ h3 {
   font-size: clamp(4.1rem, 9.6vw, 10.6rem);
 }
 
+.hero-investor h1 {
+  max-width: 920px;
+  font-size: clamp(3.5rem, 8.2vw, 9rem);
+}
+
 .hero-subtitle {
   max-width: 720px;
   margin: 22px 0 34px;
@@ -233,6 +245,68 @@ h3 {
   font-weight: 850;
   text-align: center;
   text-transform: uppercase;
+}
+
+.video-card {
+  padding: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+    rgba(8, 10, 5, 0.78);
+  border: 1px solid rgba(185, 244, 0, 0.28);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.video-screen {
+  position: relative;
+  min-height: 220px;
+  display: grid;
+  align-content: end;
+  gap: 10px;
+  padding: 20px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.76)),
+    url("assets/arte-evento-01-11.png") center / cover;
+  border-radius: 6px;
+}
+
+.video-screen::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 54px;
+  height: 54px;
+  background: var(--acid);
+  clip-path: polygon(28% 18%, 28% 82%, 82% 50%);
+}
+
+.video-screen span,
+.video-screen strong {
+  position: relative;
+  z-index: 1;
+}
+
+.video-screen span {
+  color: var(--acid);
+  font-weight: 950;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.video-screen strong {
+  color: var(--text);
+  font-size: 1.35rem;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.video-card p {
+  margin: 14px 2px 0;
+  color: var(--muted);
+  line-height: 1.45;
 }
 
 h2 {
@@ -267,6 +341,7 @@ p {
 
 .statement,
 .scarcity,
+.manifest,
 .final-belief {
   width: min(1080px, calc(100% - 36px));
   text-align: center;
@@ -274,6 +349,7 @@ p {
 
 .statement p,
 .scarcity p,
+.manifest p,
 .final-belief p {
   max-width: 760px;
   margin: 0 auto 18px;
@@ -283,8 +359,89 @@ p {
 
 .statement h2,
 .scarcity h2,
+.manifest h2,
 .final-belief h2 {
   color: var(--acid-2);
+}
+
+.origin-card {
+  padding: clamp(30px, 5vw, 58px);
+  background:
+    linear-gradient(135deg, rgba(185, 244, 0, 0.16), rgba(196, 155, 68, 0.1), rgba(255, 255, 255, 0.035)),
+    var(--panel);
+  border: 1px solid rgba(185, 244, 0, 0.3);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.origin-card p {
+  max-width: 820px;
+  font-size: 1.08rem;
+  line-height: 1.72;
+}
+
+.future {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.future-grid,
+.audience-grid,
+.exposure-grid,
+.credibility-grid,
+.availability-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.future-grid {
+  grid-template-columns: 1fr;
+}
+
+.future-grid article,
+.audience-grid span,
+.exposure-grid article,
+.credibility-grid article,
+.availability-grid article {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.028)),
+    rgba(10, 12, 8, 0.76);
+  border: 1px solid var(--white-line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.future-grid article {
+  padding: 24px;
+}
+
+.future-grid article span,
+.exposure-grid article span {
+  color: var(--acid);
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.future-grid article strong,
+.exposure-grid article strong,
+.credibility-grid article strong,
+.availability-grid article strong {
+  display: block;
+  margin: 12px 0 10px;
+  color: var(--text);
+  font-size: 1.55rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.future-grid article p,
+.exposure-grid article p,
+.credibility-grid article p {
+  margin: 0;
+  line-height: 1.62;
 }
 
 .section-heading {
@@ -298,6 +455,10 @@ p {
 .mockup-grid,
 .media-columns,
 .segment-grid,
+.audience-grid,
+.exposure-grid,
+.credibility-grid,
+.availability-grid,
 .behind-grid,
 .timeline-grid,
 .tier-grid,
@@ -389,6 +550,19 @@ p {
 
 .reason-list {
   grid-template-columns: repeat(2, 1fr);
+}
+
+.audience-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.audience-grid span {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  color: var(--text);
+  font-weight: 850;
 }
 
 .location figure,
@@ -535,13 +709,23 @@ p {
 .mockup.whatsapp::after { content: "WhatsApp"; font-size: 0.82rem; }
 
 .media-columns,
-.timeline-grid {
+.timeline-grid,
+.exposure-grid {
   grid-template-columns: repeat(3, 1fr);
 }
 
 .media-columns article,
-.timeline-grid article {
+.timeline-grid article,
+.exposure-grid article {
   padding: 30px;
+}
+
+.credibility-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.credibility-grid article {
+  padding: 26px;
 }
 
 .activation-list {
@@ -620,6 +804,39 @@ p {
 .scarcity {
   padding-top: 40px;
   padding-bottom: 40px;
+}
+
+.availability-grid {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.availability-grid article {
+  padding: 22px;
+}
+
+.slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 16px 0;
+}
+
+.slots span {
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(185, 244, 0, 0.65);
+  border-radius: 4px;
+  background: rgba(185, 244, 0, 0.08);
+}
+
+.bronze-slots span {
+  width: 18px;
+  height: 18px;
+}
+
+.availability-grid small {
+  color: var(--muted);
+  font-weight: 850;
 }
 
 .tier-grid {
@@ -764,8 +981,13 @@ li::before {
   .experience,
   .location,
   .kit,
+  .future,
   .support,
   .contact {
+    grid-template-columns: 1fr;
+  }
+
+  .investor-hero-content {
     grid-template-columns: 1fr;
   }
 
@@ -775,6 +997,10 @@ li::before {
   .mockup-grid,
   .media-columns,
   .segment-grid,
+  .audience-grid,
+  .exposure-grid,
+  .credibility-grid,
+  .availability-grid,
   .behind-grid,
   .timeline-grid,
   .tier-grid,
@@ -838,6 +1064,10 @@ li::before {
     font-size: clamp(3.05rem, 16vw, 5.4rem);
   }
 
+  .hero-investor h1 {
+    font-size: clamp(2.8rem, 14vw, 4.8rem);
+  }
+
   .hero-subtitle {
     font-size: 1.32rem;
   }
@@ -857,6 +1087,10 @@ li::before {
   .mockup-grid,
   .media-columns,
   .segment-grid,
+  .audience-grid,
+  .exposure-grid,
+  .credibility-grid,
+  .availability-grid,
   .behind-grid,
   .timeline-grid,
   .tier-grid,
