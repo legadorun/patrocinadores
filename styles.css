@@ -178,10 +178,38 @@ img {
   width: clamp(132px, 16vw, 220px);
   height: clamp(132px, 16vw, 220px);
   object-fit: cover;
-  margin-bottom: 30px;
+  margin-bottom: 18px;
   border: 1px solid rgba(185, 244, 0, 0.36);
   border-radius: 50%;
   box-shadow: 0 0 60px rgba(185, 244, 0, 0.18);
+}
+
+.circuit-badge {
+  display: inline-grid;
+  gap: 4px;
+  margin-bottom: 22px;
+  padding: 13px 16px;
+  background: rgba(3, 4, 2, 0.74);
+  border: 1px solid rgba(185, 244, 0, 0.42);
+  border-radius: 6px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.36);
+}
+
+.circuit-badge span,
+.circuit-badge strong {
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.circuit-badge span {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.circuit-badge strong {
+  color: var(--acid);
+  font-size: 1.28rem;
 }
 
 .eyebrow,
@@ -289,6 +317,35 @@ h3 {
     linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.76)),
     url("assets/arte-evento-01-11.png") center / cover;
   border-radius: 6px;
+}
+
+.video-reel {
+  min-height: 280px;
+}
+
+.reel-scenes {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  opacity: 0.32;
+}
+
+.reel-scenes i {
+  background-size: cover;
+  background-position: center;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  animation: reelPulse 8s ease-in-out infinite;
+}
+
+.reel-scenes i:nth-child(1) { background-image: url("assets/grupo-corrida-legado-run.png"); animation-delay: 0s; }
+.reel-scenes i:nth-child(2) { background-image: url("assets/local-praca-perrela-andradas.jpeg"); animation-delay: 1s; }
+.reel-scenes i:nth-child(3) { background-image: url("assets/kit-oficial-legado-run-completo.png"); animation-delay: 2s; }
+.reel-scenes i:nth-child(4) { background-image: url("assets/arte-evento-01-11.png"); animation-delay: 3s; }
+
+@keyframes reelPulse {
+  0%, 100% { transform: scale(1); opacity: 0.42; }
+  50% { transform: scale(1.08); opacity: 0.78; }
 }
 
 .video-screen::before {
@@ -1024,6 +1081,62 @@ p {
   font-weight: 850;
 }
 
+.slot-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 8px 10px;
+  background: rgba(185, 244, 0, 0.12);
+  border: 1px solid rgba(185, 244, 0, 0.42);
+  border-radius: 6px;
+  color: var(--acid);
+  font-size: 0.76rem;
+  font-style: normal;
+  font-weight: 950;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.slot-status::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: var(--acid);
+  border-radius: 2px;
+  box-shadow: 0 0 18px rgba(185, 244, 0, 0.6);
+}
+
+.believers-board {
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  padding: clamp(28px, 5vw, 54px);
+  background:
+    linear-gradient(135deg, rgba(185, 244, 0, 0.15), rgba(255, 255, 255, 0.035)),
+    rgba(10, 12, 8, 0.78);
+  border: 1px dashed rgba(185, 244, 0, 0.42);
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.believers-board strong {
+  color: var(--acid-2);
+  font-size: clamp(2.5rem, 6vw, 5.4rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.believers-board p {
+  max-width: 620px;
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
 .tier-grid {
   grid-template-columns: repeat(4, 1fr);
 }
@@ -1160,6 +1273,27 @@ li::before {
   background: rgba(255, 255, 255, 0.04);
   color: var(--text);
   box-shadow: none;
+}
+
+.floating-meeting {
+  position: fixed;
+  z-index: 30;
+  right: 18px;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 0 18px;
+  background: var(--acid);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 6px;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.42), 0 0 34px rgba(185, 244, 0, 0.22);
 }
 
 .hero-meta {
@@ -1689,6 +1823,14 @@ textarea {
     font-size: 1.32rem;
   }
 
+  .circuit-badge span {
+    font-size: 0.75rem;
+  }
+
+  .circuit-badge strong {
+    font-size: 1.02rem;
+  }
+
   .hero-strip {
     grid-template-columns: repeat(2, 1fr);
     bottom: 16px;
@@ -1779,6 +1921,12 @@ textarea {
   .final-actions {
     align-items: stretch;
     flex-direction: column;
+  }
+
+  .floating-meeting {
+    left: 14px;
+    right: 14px;
+    bottom: 12px;
   }
 
   .roadmap-track,
